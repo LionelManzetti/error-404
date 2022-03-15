@@ -12,6 +12,7 @@ const projectsDiv = document.querySelector(".projects");
 const contact = document.querySelector("#contact");
 const contactDiv = document.querySelector(".contact");
 const presentation = document.querySelector(".presentation");
+const switchWrapper = document.querySelector(".theme-switch-wrapper");
 const screamImg = document.querySelector("#screamImg");
 const strike = document.querySelector("#strike");
 
@@ -19,6 +20,7 @@ const strike = document.querySelector("#strike");
 button.addEventListener('click', function () {
   menu.classList.add('transform');
   home.classList.add('localisation');
+  switchWrapper.style.display = "flex";
   title.style.fontSize = "5em";
   screamImg.style.maxWidth = "0%";
   screamImg.style.opacity = "0%";
@@ -88,3 +90,17 @@ contact.addEventListener('click', function () {
   projects.classList.remove('localisation');
   contact.classList.add('localisation');
 });
+
+
+const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+
+function switchTheme(e) {
+    if (e.target.checked) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+    }
+    else {
+        document.documentElement.setAttribute('data-theme', 'light');
+    }    
+}
+
+toggleSwitch.addEventListener('change', switchTheme, false);
